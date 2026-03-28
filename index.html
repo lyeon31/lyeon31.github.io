@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Diskite Home</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body class="home-body">
+    <div class="site-shell home-shell">
+      <header class="topbar">
+        <a href="./index.html" class="site-name" aria-label="Diskite home">
+          <img src="./mini logo.png" alt="Diskite" class="site-logo" />
+        </a>
+        <nav class="top-nav" aria-label="Primary">
+          <button type="button" class="nav-trigger" data-open-info>Info</button>
+          <a href="mailto:hello@example.com">Email</a>
+          <a href="./portfolio.html">Portfolio</a>
+        </nav>
+      </header>
+
+      <main class="home-main">
+        <section class="logo-stage home-logo-stage" aria-label="Main logo">
+          <div class="logo-aura"></div>
+          <img src="./main_logo.png" alt="Diskite logo" class="main-logo" />
+
+          <a class="project-chip chip-top-left" href="./portfolio.html#project-1">Game</a>
+          <a class="project-chip chip-top-right" href="./portfolio.html#project-2">Profile</a>
+          <a class="project-chip chip-bottom-left" href="./portfolio.html#project-3">Portfolio</a>
+          <a class="project-chip chip-bottom-right" href="./portfolio.html#project-4">Graphic</a>
+          <a class="project-chip chip-mid-right" href="./portfolio.html#project-5">Archive</a>
+        </section>
+      </main>
+
+      <section class="home-bottom">
+        <div class="social-links" aria-label="Social links">
+          <a href="https://www.linkedin.com" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a href="https://www.behance.net" target="_blank" rel="noreferrer">Behance</a>
+          <a href="https://www.instagram.com" target="_blank" rel="noreferrer">Instagram</a>
+        </div>
+      </section>
+    </div>
+
+    <section class="info-modal" aria-hidden="true" hidden data-info-modal>
+      <div class="info-modal-backdrop" data-close-info></div>
+      <div class="info-modal-panel" role="dialog" aria-modal="true" aria-labelledby="info-modal-title">
+        <header class="info-modal-header">
+          <div class="info-modal-brandline">
+            <a href="./index.html" id="info-modal-title" class="site-name info-modal-logo" aria-label="Diskite home">
+              <img src="./mini logo.png" alt="Diskite" class="site-logo" />
+            </a>
+            <nav class="info-modal-nav" aria-label="Information quick links">
+              <button type="button" class="nav-trigger" data-close-info>Info</button>
+              <a href="mailto:hello@example.com">Email</a>
+              <a href="./portfolio.html">Portfolio</a>
+            </nav>
+          </div>
+        </header>
+
+        <div class="info-modal-grid">
+          <div class="info-modal-label">Information</div>
+          <div class="info-modal-content info-modal-intro">
+            <div class="info-identity">
+              <p>김이연 / Visual Designer</p>
+              <p><a href="mailto:hello@example.com">Email</a></p>
+              <p><a href="https://www.instagram.com" target="_blank" rel="noreferrer">Instagram</a></p>
+            </div>
+            <div class="info-summary">
+              <p>
+                브랜드, 그래픽, 편집 디자인을 기반으로 프로젝트의 무드와 구조를 함께 설계하는
+                비주얼 디자이너입니다. 따뜻한 톤과 명확한 타이포그래피를 중심으로 화면과 인쇄물
+                모두에서 자연스럽게 이어지는 시각 경험을 만들고 있습니다.
+              </p>
+            </div>
+          </div>
+
+          <div class="info-modal-label">Education</div>
+          <div class="info-modal-content info-modal-list">
+            <article class="info-entry">
+              <h2>Visual Design Studies</h2>
+              <p>브랜드와 편집, 그래픽 디자인을 중심으로 시각 디자인 기반을 학습</p>
+              <span>2023</span>
+            </article>
+            <article class="info-entry">
+              <h2>Typography / Editorial Practice</h2>
+              <p>레이아웃 구성, 정보 구조화, 포트폴리오 편집 방식 확장</p>
+              <span>Ongoing</span>
+            </article>
+          </div>
+
+          <div class="info-modal-label">Employment</div>
+          <div class="info-modal-content info-modal-list">
+            <article class="info-entry">
+              <h2>Branding & Graphic Projects</h2>
+              <p>포스터, 프로필 북, 아카이브형 편집물, 시각 시스템 기획 및 제작</p>
+              <span>2023 - 2024</span>
+            </article>
+            <article class="info-entry">
+              <h2>Freelance / Collaborative Work</h2>
+              <p>개인 작업과 협업 프로젝트를 병행하며 포트폴리오 및 브랜드 비주얼 구축</p>
+              <span>Since 2024</span>
+            </article>
+            <article class="info-entry">
+              <h2>Tools & Workflow</h2>
+              <p>Illustrator, Photoshop, InDesign, Figma 기반으로 리서치부터 키비주얼 정리까지 진행</p>
+              <span>Current</span>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="cursor" aria-hidden="true">
+      <img src="./mouse_pixel.png" alt="" />
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>

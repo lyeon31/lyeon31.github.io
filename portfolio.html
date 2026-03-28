@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Diskite Portfolio</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body class="portfolio-main-body">
+    <div class="site-shell portfolio-main-shell">
+      <header class="portfolio-top">
+        <a href="./index.html" class="site-name" aria-label="Diskite home">
+          <img src="./mini logo.png" alt="Diskite" class="site-logo" />
+        </a>
+        <nav class="top-nav" aria-label="Portfolio navigation">
+          <a href="./index.html?overlay=info">Info</a>
+          <a href="mailto:hello@example.com">Email</a>
+          <a href="./portfolio.html">Portfolio</a>
+        </nav>
+      </header>
+
+      <main class="portfolio-board" aria-label="Draggable portfolio board">
+        <div class="board-note">
+          <span>Drag Projects</span>
+          <span>Click to Open</span>
+        </div>
+
+        <a class="project-thumb thumb-game draggable-card" href="./project-game.html" style="left: 8%; top: 18%;">
+          <span class="thumb-index">01</span>
+          <div class="thumb-visual visual-game">
+            <div class="thumb-glow"></div>
+            <div class="thumb-label">GAME POSTER</div>
+          </div>
+          <strong>Pixel Run Campaign</strong>
+        </a>
+
+        <a class="project-thumb thumb-profile draggable-card" href="./project-profile.html" style="left: 34%; top: 12%;">
+          <span class="thumb-index">02</span>
+          <div class="thumb-visual visual-profile">
+            <div class="thumb-panel"></div>
+            <div class="thumb-label">PROFILE BOOK</div>
+          </div>
+          <strong>Soft Persona Series</strong>
+        </a>
+
+        <a class="project-thumb thumb-edit draggable-card" href="./project-portfolio.html" style="left: 60%; top: 24%;">
+          <span class="thumb-index">03</span>
+          <div class="thumb-visual visual-edit">
+            <div class="thumb-lines"></div>
+            <div class="thumb-label">PORTFOLIO EDIT</div>
+          </div>
+          <strong>Diskite Visual Edit</strong>
+        </a>
+
+        <a class="project-thumb thumb-graphic draggable-card" href="./project-graphic.html" style="left: 22%; top: 54%;">
+          <span class="thumb-index">04</span>
+          <div class="thumb-visual visual-graphic">
+            <div class="thumb-ring"></div>
+            <div class="thumb-label">GRAPHIC SYSTEM</div>
+          </div>
+          <strong>Warm Signal Graphics</strong>
+        </a>
+
+        <a class="project-thumb thumb-archive draggable-card" href="./project-archive.html" style="left: 53%; top: 56%;">
+          <span class="thumb-index">05</span>
+          <div class="thumb-visual visual-archive">
+            <div class="thumb-stack"></div>
+            <div class="thumb-label">ARCHIVE ZINE</div>
+          </div>
+          <strong>Memory Shelf Archive</strong>
+        </a>
+      </main>
+    </div>
+
+    <div class="cursor" aria-hidden="true">
+      <img src="./mouse_pixel.png" alt="" />
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
