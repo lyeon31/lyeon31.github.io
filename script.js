@@ -4,6 +4,8 @@ const cursorImage = cursor?.querySelector("img");
 if (cursor && cursorImage) {
   const defaultCursorSrc = "./mouse_pixel.png";
   const hoverCursorSrc = "./mouse_pixel_hover.png";
+  let isPointerDown = false;
+  const keepCursorVisible = document.body.classList.contains("portfolio-main-body");
 
   window.addEventListener("mousemove", (event) => {
     cursor.style.transform = `translate3d(${event.clientX}px, ${event.clientY}px, 0)`;
@@ -11,10 +13,22 @@ if (cursor && cursorImage) {
   });
 
   window.addEventListener("mouseleave", () => {
-    cursor.style.opacity = "0";
+    if (!isPointerDown && !keepCursorVisible) {
+      cursor.style.opacity = "0";
+    }
   });
 
-  cursor.style.opacity = "0";
+  cursor.style.opacity = keepCursorVisible ? "1" : "0";
+
+  window.addEventListener("mousedown", () => {
+    isPointerDown = true;
+    cursor.style.opacity = "1";
+  });
+
+  window.addEventListener("mouseup", () => {
+    isPointerDown = false;
+    cursor.style.opacity = "1";
+  });
 
   const hoverTargets = document.querySelectorAll("a, button, [role='button']");
 
@@ -111,11 +125,13 @@ if (infoModal) {
   }
 }
 
-const draggableCards = document.querySelectorAll(".draggable-card");
-const isPortfolioBoard = document.body.classList.contains("portfolio-main-body");
+const draggableItems = document.querySelectorAll(".draggable-card, .project-chip");
+const isDraggablePage =
+  document.body.classList.contains("portfolio-main-body") ||
+  document.body.classList.contains("home-body");
 
-if (draggableCards.length > 0 && isPortfolioBoard) {
-  draggableCards.forEach((card) => {
+if (draggableItems.length > 0 && isDraggablePage) {
+  draggableItems.forEach((card) => {
     let isDragging = false;
     let moved = false;
     let offsetX = 0;
@@ -126,9 +142,23 @@ if (draggableCards.length > 0 && isPortfolioBoard) {
         return;
       }
 
+      event.preventDefault();
       moved = true;
-      card.style.left = `${event.clientX - offsetX}px`;
-      card.style.top = `${event.clientY - offsetY}px`;
+      if (cursor) {
+        cursor.style.transform = `translate3d(${event.clientX}px, ${event.clientY}px, 0)`;
+        cursor.style.opacity = "1";
+      }
+      const parentRect = card.offsetParent?.getBoundingClientRect();
+
+      if (!parentRect) {
+        return;
+      }
+
+      const nextLeft = event.clientX - parentRect.left - offsetX;
+      const nextTop = event.clientY - parentRect.top - offsetY;
+
+      card.style.left = `${nextLeft}px`;
+      card.style.top = `${nextTop}px`;
     };
 
     const onPointerUp = () => {
@@ -146,14 +176,26 @@ if (draggableCards.length > 0 && isPortfolioBoard) {
     };
 
     card.addEventListener("pointerdown", (event) => {
+      event.preventDefault();
       const rect = card.getBoundingClientRect();
+      const parentRect = card.offsetParent?.getBoundingClientRect();
+
+      if (!parentRect) {
+        return;
+      }
+
       isDragging = true;
       moved = false;
       offsetX = event.clientX - rect.left;
       offsetY = event.clientY - rect.top;
-      card.style.left = `${rect.left}px`;
-      card.style.top = `${rect.top}px`;
+      if (cursor) {
+        cursor.style.transform = `translate3d(${event.clientX}px, ${event.clientY}px, 0)`;
+        cursor.style.opacity = "1";
+      }
+      card.style.left = `${rect.left - parentRect.left}px`;
+      card.style.top = `${rect.top - parentRect.top}px`;
       card.style.zIndex = String(Date.now());
+      card.setPointerCapture(event.pointerId);
       window.addEventListener("pointermove", onPointerMove);
       window.addEventListener("pointerup", onPointerUp);
     });
